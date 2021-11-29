@@ -1,0 +1,81 @@
+[{
+  "_id": {
+    "$oid": "605dadff0a988b3e64bf77a7"
+  },
+  "options": [
+    "Sale consideration",
+    "Sale agreement",
+    "Site visit",
+    "Sale deed"
+  ],
+  "assessment_question": "What from the following, is compulsory for the transfer of a property from a seller to a buyer?",
+  "question_type": "Single_Select",
+  "actual_answer": "Sale deed",
+  "c_dt": {
+    "$date": "2021-03-26T09:48:47.216Z"
+  }
+},{
+  "_id": {
+    "$oid": "605dadff0a988b3e64bf77a8"
+  },
+  "options": [
+    "GHMC",
+    "HMDA",
+    "TSLR",
+    "Local gram panchayat"
+  ],
+  "assessment_question": "All properties in urban areas belong to:",
+  "question_type": "Single_Select",
+  "actual_answer": "TSLR",
+  "c_dt": {
+    "$date": "2021-03-26T09:48:47.824Z"
+  }
+},{
+  "_id": {
+    "$oid": "605dae000a988b3e64bf77a9"
+  },
+  "options": [
+    "Safety of the labour/workers",
+    "RMC",
+    "Soil testing",
+    "Good quality sand"
+  ],
+  "assessment_question": "What amongst the following, is the most important aspect to consider during construction of any structure?",
+  "question_type": "Single_Select",
+  "actual_answer": "Safety of the labour/workers",
+  "c_dt": {
+    "$date": "2021-03-26T09:48:48.227Z"
+  }
+},{
+  "_id": {
+    "$oid": "605dae000a988b3e64bf77aa"
+  },
+  "options": [
+    "Market value of the property",
+    "Details of stamp duty and registration fees",
+    "Boundaries of the property",
+    "All the above"
+  ],
+  "assessment_question": "To execute the sale deed of any property, which of the following is absolutely necessary?",
+  "question_type": "Single_Select",
+  "actual_answer": "All the above",
+  "c_dt": {
+    "$date": "2021-03-26T09:48:48.633Z"
+  }
+},{
+  "_id": {
+    "$oid": "605dae010a988b3e64bf77ab"
+  },
+  "options": [
+    "Town planning department",
+    "RDO/Collector",
+    "Village officer",
+    "Local architect"
+  ],
+  "assessment_question": "The total extent of any survey number, forming a part of the village map in any urban area, is under the purview of:",
+  "question_type": "Single_Select",
+  "actual_answer": "RDO/Collector",
+  "c_dt": {
+    "$date": "2021-03-26T09:48:49.016Z"
+  }
+}]

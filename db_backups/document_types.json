@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "603cc77f479ac471fda51b8f"
+  },
+  "document_type": "Saledeed",
+  "document_type_code": "SALD",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "603cc77f479ac471fda51b90"
+  },
+  "document_type": "Mortagage",
+  "document_type_code": "MRT",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "603cc780479ac471fda51b91"
+  },
+  "document_type": "LRS",
+  "document_type_code": "LRS",
+  "__v": 0
+}]

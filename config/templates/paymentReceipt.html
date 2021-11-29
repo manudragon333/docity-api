@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+    </style>
+</head>
+
+<body class="main-body" style=" font-family: 'Montserrat', sans-serif;
+text-align: center;
+width: 100%;
+max-width: 600px;
+min-width: 320px;
+margin: 0 auto;
+color: black;">
+    <table style="padding: 30px;    width: 100%;background:#fff">
+        <tr>
+            <td>
+                <a href="#" style="cursor: default !important;">
+                    <img src="https://s3.amazonaws.com/spa-stage-users/c78c41ab-1594-4413-8be4-06071d376477.png" 
+                    style="width: 100px;">
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h2 style="font-family: 'Montserrat', sans-serif; font-size: 18px;margin: 15px;text-transform: uppercase;">Receipt From DoCity</h2>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="text-align: center;margin: 0 auto;">
+                    <tr>
+                        <td style="width:200px;font-family: 'Montserrat', sans-serif;font-size: 14px;text-align:left">
+                            <h3 style="color: #d97d55;margin: 0px;text-transform: uppercase;font-size: 14px;">Request ID</h3>
+                            <p style="color:#434d5c;padding-top: 5px;margin: 0px;">{{orderId}}
+                        </td>
+                        <td style="width:200px;font-family: 'Montserrat', sans-serif;font-size: 14px;">
+                            <h3 style="color: #d97d55;margin: 0px;text-transform: uppercase;font-size: 14px;">Request Date</h3>
+                            <p style="color:#434d5c;padding-top: 5px;margin: 0px;">{{createdDate}}
+                        </td>
+                        <td style="width:200px;font-family: 'Montserrat', sans-serif;font-size: 14px;text-align:right; ">
+                            <h3 style="color: #d97d55;margin: 0px;text-transform: uppercase;font-size: 14px;">Amount Paid</h3>
+                            <p style="color:#434d5c;padding-top: 5px;margin: 0px;">Rs {{amount}}/-
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h2 style="font-family: 'Montserrat', sans-serif; font-size: 14px;text-align:left;color: #d97d55;text-transform: uppercase;">Order Summary</h2>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="text-align: center;margin: 0 auto;border-radius: 3px;background-color: #f6f9fc;">
+                    <tr>
+                        <td style="width:270px;font-family: 'Montserrat', sans-serif;font-size: 14px;text-align:left;padding: 10px;">
+                            <h3 style="color: #434d5c;;margin: 0px;font-size: 16px;">Property Address</h3>
+                            <p style="color:#434d5c;padding-top: 5px;margin: 0px;">{{address}}</p>
+                        </td>
+                        <td style="width:100px;font-family: 'Montserrat', sans-serif;font-size: 14px;">
+                            <h3 style="color: #434d5c;;margin: 0px;font-size: 16px;">Qty</h3>
+                            <p style="color:#434d5c;padding-top: 5px;margin: 0px;">1</p>
+                        </td>
+                        <td style="width:130px;font-family: 'Montserrat', sans-serif;font-size: 14px;text-align:right;padding: 10px; ">
+                            <h3 style="color: #434d5c;;margin: 0px;font-size: 16px;">Amount</h3>
+                            <p style="color:#434d5c;padding-top: 5px;margin: 0px;">Rs 1800/-</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="100%">
+                            <hr style="border: 0.8px solid #e6ebf1;">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width:500px"></td>
+                        <td style="width:50px;font-family: 'Montserrat', sans-serif;font-size: 14px;">
+                            <h3 style="color: #434d5c;margin: 0px;font-size: 14px;">Tax</h3>
+                            <p style="color:#434d5c;padding-top: 5px;margin: 0px;font-size: 14px;">CGST</p>
+                            <p style="color:#434d5c;padding-top: 5px;margin: 0px;font-size: 14px;">IGST</p>
+
+                        </td>
+                        <td style="width:50px;font-family: 'Montserrat', sans-serif;font-size: 14px;text-align:right;padding: 10px; ">
+                            <h3 style="color: #434d5c;;margin: 0px;font-size: 14px;">Rs 100/-</h3>
+                            <p style="color:#434d5c;padding-top: 5px;margin: 0px;font-size: 14px;">Rs 50/-</p>
+                            <p style="color:#434d5c;padding-top: 5px;margin: 0px;font-size: 14px;">Rs 50/-</p>
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="100%">
+                            <hr style="border: 0.8px solid #e6ebf1;">
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td style="width:350px"></td>
+                        <td style="width:100px;font-family: 'Montserrat', sans-serif;font-size: 14px;">
+                            <h3 style="color: #242a3a;margin: 0px;font-size: 14px;">Total</h3>
+                        </td>
+                        <td style="width:130px;font-family: 'Montserrat', sans-serif;font-size: 14px;text-align:right;padding: 10px; ">
+                            <h3 style="color:#242a3a;margin: 0px;font-size: 14px;">Rs 2000/-</h3>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+
+
+    </table>
+</body>
+
+</html>

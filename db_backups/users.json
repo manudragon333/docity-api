@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "601d190bfe36676e5f87b6f1"
+  },
+  "f_nm": "super",
+  "l_nm": "admin",
+  "dob": "10-02-1991",
+  "ph_no": "8106290123",
+  "role_obj": [
+    {
+      "$oid": "601d18ddc169ab48bb0f5ae0"
+    }
+  ],
+  "currnt_addr": null,
+  "prmnt_addr": null,
+  "age": null,
+  "pic": "",
+  "status": 0,
+  "read_msg": 0,
+  "email": "superadmin@gmail.com",
+  "password": "$2b$05$bn2so8Q0nCaXYHgmiYXN2ev9QEmiUPshYxXNQAoeO2r.gtgdO3LUW",
+  "id_proof": [],
+  "__v": 0,
+  "country_code": null,
+  "full_nm": "super admin",
+  "grad_from": null,
+  "yr_of_pass": null
+}]

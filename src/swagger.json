@@ -1,0 +1,2490 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "docity",
+    "description": "docity Application API"
+  },
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "Master-data",
+      "description": "API for master data in the application"
+    },
+    {
+      "name": "Property-request",
+      "description": "API for property request in the application"
+    },
+    {
+      "name": "Me",
+      "description": "API for Me in the application"
+    },
+    {
+      "name": "User",
+      "description": "API for User in the application"
+    },
+    {
+      "name": "Auth",
+      "description": "API for Authorize in the application"
+    },
+    {
+      "name": "Assessment",
+      "description": "API for Assessment in the application"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/auth": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Api to login into docity system",
+        "description": "This api used to  login into docity application",
+        "parameters": [
+          {
+            "name": "User",
+            "in": "body",
+            "description": "User details that we want to create",
+            "schema": {
+              "$ref": "#/definitions/loginRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/loginResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Api to register into docity system",
+        "description": "This api used to  register into docity application",
+        "parameters": [
+          {
+            "name": "User",
+            "in": "body",
+            "description": "User details that we want to create",
+            "schema": {
+              "$ref": "#/definitions/registrationRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/successObject"
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/auth/forgetPassword": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Api for forget password into docity system",
+        "description": "This api used for forget password into docity application",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User details that we want to create",
+            "schema": {
+              "$ref": "#/definitions/forgetPasswordRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/successObject"
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/auth/resetPassword": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Api to reset password into docity system",
+        "description": "This api used to reset password into docity application",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User details that we want to create",
+            "schema": {
+              "$ref": "#/definitions/resetPasswordRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/successObject"
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/auth/resend/verifyLink": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Api to resend link to user",
+        "description": "This api used to resend link to user",
+        "parameters": [
+          {
+            "name": "userRequest",
+            "in": "body",
+            "description": "User details that we want to send link to verify",
+            "schema": {
+              "$ref": "#/definitions/resetPasswordRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/successObject"
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/auth/invite/verify": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Api to resend link to user by token",
+        "description": "This api used to resend link to user by token",
+        "parameters": [
+          {
+            "name": "tk",
+            "in": "query",
+            "description": "User details that we want to send link to verify by token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/successObject"
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/auth/users": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Api to save invited user details",
+        "description": "This api used to save invited user details",
+        "parameters": [
+          {
+            "name": "tk",
+            "in": "body",
+            "description": "User details that we want to send link to verify by token",
+            "schema": {
+              "$ref": "#/definitions/invitedUserDetails"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/successObject"
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/propertyRequests/verifyRequests": {
+      "post": {
+        "tags": [
+          "Property-request"
+        ],
+        "summary": "Verify property request in the docity system",
+        "description": "Verify property request in docity system",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "propertyRequest",
+            "in": "body",
+            "description": "Verify property request",
+            "schema": {
+              "$ref": "#/definitions/propertyRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/propertyResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Property-request"
+        ],
+        "summary": "Get verified property requests in the docity system",
+        "description": "Get verified property requests in docity system",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "description": "search job opportunities",
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "page number for pagination",
+            "type": "number",
+            "default": "0"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "page size for pagination",
+            "type": "number",
+            "default": "10"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "description": "search job opportunities",
+            "type": "string"
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "required": false,
+            "description": "page number for pagination",
+            "type": "number",
+            "default": "0"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/propertyResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/propertyRequests/verifyRequests/{propertyRequestId}": {
+      "get": {
+        "tags": [
+          "Property-request"
+        ],
+        "summary": "Get property request details in the docity system",
+        "description": "Get property request details in docity system",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "propertyRequestId",
+            "in": "query",
+            "required": true,
+            "description": "To get the particular property",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/propertyRequestResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/propertyRequests/verifyRequests/{propertyRequestId}/civilEngineers": {
+      "get": {
+        "tags": [
+          "Property-request"
+        ],
+        "summary": "Assign civil engineer in the docity system",
+        "description": "Assign civil engineer in docity system",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "civilEngineerRequest",
+            "in": "body",
+            "required": true,
+            "description": "Assign civil engineer",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/civilEngineerRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/propertyRequestResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/propertyRequests/verifyRequests/{propertyRequestId}/docs/{propertyDocId}/comments": {
+      "get": {
+        "tags": [
+          "Property-request"
+        ],
+        "summary": "Get document comments in the docity system",
+        "description": "Get document comments in docity system",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "propertyRequestId",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "propertyDocId",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/propertyRequestResponse"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Property-request"
+        ],
+        "summary": "Add comments to doc in the docity system",
+        "description": "Add comments to doc in docity system",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "propertyRequestId",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "propertyDocId",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "civilEngineerRequest",
+            "in": "body",
+            "required": true,
+            "description": "Assign civil engineer",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/documentRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/documentRequest"
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/propertyRequests/verifyRequests/{propertyRequestId}/actions/submitted": {
+      "put": {
+        "tags": [
+          "Property-request"
+        ],
+        "summary": "Get property request details in the docity system",
+        "description": "Get property request details in docity system",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "propertyRequestId",
+            "in": "query",
+            "required": true,
+            "description": "To get the particular property",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/propertyResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/propertyRequests/verifyRequests/{propertyRequestId}/documentWriter": {
+      "put": {
+        "tags": [
+          "Property-request"
+        ],
+        "summary": "Update property request document details in the docity system",
+        "description": "Update property request document  details in docity system",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "propertyRequestId",
+            "in": "query",
+            "required": true,
+            "description": "To get the particular property",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/propertyResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/propertyRequests/contacts": {
+      "get": {
+        "tags": [
+          "Property-request"
+        ],
+        "summary": "Contacts of  property requests in the docity system",
+        "description": "Contacts of  property requests in docity system",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/propertyContactResponse"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/propertyRequests/verifyRequests/{propertyRequestId}/docs": {
+      "post": {
+        "tags": [
+          "Property-request"
+        ],
+        "summary": "Contacts of  property requests in the docity system",
+        "description": "Contacts of  property requests in docity system",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "propertyRequestId",
+            "description": "UserId",
+            "type": "string",
+            "in": "query",
+            "required": true
+          },
+          {
+            "name": "attachment",
+            "in": "formData",
+            "description": "attachment files",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "attachmentType",
+            "in": "formData",
+            "description": "type of the file",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/propertyDocumentResponse"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Add User in the docity system",
+        "description": "Create new User in docity system",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "User",
+            "in": "body",
+            "description": "User details that we want to create",
+            "schema": {
+              "$ref": "#/definitions/addUser"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/successObject"
+            }
+          },
+          "400": {
+            "description": "Duplicate User email or mobile number.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Update User in the docity system",
+        "description": "Update User in docity system",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "roles",
+            "in": "query",
+            "required": false,
+            "description": "Need to get users based on roles",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Only get active users",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/userResponse"
+            }
+          },
+          "400": {
+            "description": "Duplicate User email or mobile number.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Update User in the docity system",
+        "description": "Update User in docity system",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "description": "To update the particular user",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/addUser"
+            }
+          },
+          "400": {
+            "description": "Duplicate User email or mobile number.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get User in the docity system",
+        "description": "Get User in docity system",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "description": "To get the particular user",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/addUser"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/users/invite/CIVIL_ENGINEER": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Invite User in the docity system",
+        "description": "Create new User in docity system",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "User",
+            "in": "body",
+            "description": "User details that we want to create",
+            "schema": {
+              "$ref": "#/definitions/inviteRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/successObject"
+            }
+          },
+          "400": {
+            "description": "Duplicate User email or mobile number.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/profileImage": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "description": "Save user profile images(attachments).",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "userId",
+            "description": "UserId",
+            "type": "string",
+            "in": "query",
+            "required": true
+          },
+          {
+            "name": "profileImage",
+            "in": "formData",
+            "description": "attachment files",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "type",
+            "in": "formData",
+            "description": "type of the file",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/userResponse"
+            }
+          },
+          "404": {
+            "description": "Department does not exist.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/actions/{status}": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "Save user profile images(attachments).",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "userId",
+            "description": "UserId",
+            "type": "string",
+            "in": "query",
+            "required": true
+          },
+          {
+            "name": "status",
+            "description": "Used to chnange the status of the user",
+            "type": "string",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/successObject"
+            }
+          },
+          "404": {
+            "description": "User does not exist.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/attachments": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "Save user profile images(attachments).",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "userId",
+            "description": "UserId",
+            "type": "string",
+            "in": "query",
+            "required": true
+          },
+          {
+            "name": "attachment",
+            "in": "formData",
+            "description": "attachment files",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "type",
+            "in": "formData",
+            "description": "type of the file",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/userResponse"
+            }
+          },
+          "404": {
+            "description": "Department does not exist.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "description": "Get user profile images(attachments).",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "userId",
+            "description": "UserId",
+            "type": "string",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/idProof"
+            }
+          },
+          "404": {
+            "description": "User does not exist.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/kycVerified": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "description": "Save user profile images(attachments).",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/userResponse"
+            }
+          },
+          "404": {
+            "description": "Department does not exist.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/me": {
+      "get": {
+        "tags": [
+          "Me"
+        ],
+        "summary": "Get Me in the docity application.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/addUser"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Me"
+        ],
+        "summary": "Update Me in the docity application.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/addUser"
+            }
+          },
+          "404": {
+            "description": "User does not exist.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/me/profileImage": {
+      "put": {
+        "tags": [
+          "Me"
+        ],
+        "summary": "Upload me profile in the docity application.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "profileImage",
+            "in": "formData",
+            "description": "attachment files",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/addUser"
+            }
+          },
+          "404": {
+            "description": "User details does not exist.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/me/attachments": {
+      "post": {
+        "tags": [
+          "Me"
+        ],
+        "summary": "Upload me profile in the docity application.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "profileImage",
+            "in": "formData",
+            "description": "attachment files",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "type",
+            "in": "formData",
+            "description": "attachment files",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/addUser"
+            }
+          },
+          "404": {
+            "description": "User details does not exist.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Me"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/idProof"
+            }
+          }
+        }
+      }
+    },
+    "/me/resetPassword": {
+      "put": {
+        "tags": [
+          "Me"
+        ],
+        "summary": "Reset Me password in the docity application.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/addUser"
+            }
+          },
+          "404": {
+            "description": "User details does not exist.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/masterdata/regions": {
+      "get": {
+        "tags": [
+          "Master-data"
+        ],
+        "summary": "Get master regions list.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/masterResponse"
+            }
+          }
+        }
+      }
+    },
+    "/masterdata/propertyTypes": {
+      "get": {
+        "tags": [
+          "Master-data"
+        ],
+        "summary": "Get master property type list.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/masterResponse"
+            }
+          }
+        }
+      }
+    },
+    "/masterData/documentTypes": {
+      "get": {
+        "tags": [
+          "Master-data"
+        ],
+        "summary": "Get master document type list.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/masterResponse"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/roles": {
+      "get": {
+        "tags": [
+          "Master-data"
+        ],
+        "summary": "Get role list.",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/masterResponse"
+              }
+            }
+          },
+          "400": {
+            "description": "Un Authorised",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/errorObject"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assessmentQuestion/questions": {
+      "get": {
+        "tags": [
+          "Assessment"
+        ],
+        "summary": "Get assessment question list.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/assessmentQuestions"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assessmentQuestion/saveAnswers": {
+      "post": {
+        "tags": [
+          "Assessment"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Access token.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "civilEngineerAssessmentResults",
+            "in": "body",
+            "description": "Request body to save answers",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/civilEngineerAssessmentResults"
+              }
+            }
+          }
+        ],
+        "summary": "Add civil engineer assessment results.",
+        "responses": {
+          "201": {
+            "description": "CREATED",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/civilEngineerAssessmentResults"
+              }
+            }
+          },
+          "404": {
+            "description": "User does not exist.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          },
+          "422": {
+            "description": "validation error.",
+            "schema": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "masterResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "errorObject": {
+      "type": "objet",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "errorCode": {
+          "type": "string"
+        },
+        "fieldName": {
+          "type": "string"
+        }
+      }
+    },
+    "assessmentQuestions": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "question": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array"
+        },
+        "questionType": {
+          "type": "string"
+        }
+      }
+    },
+    "civilEngineerAssessmentResults": {
+      "type": "object",
+      "properties": {
+        "questionId": {
+          "type": "string"
+        },
+        "answer": {
+          "type": "string"
+        }
+      }
+    },
+    "addUser": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailId": {
+          "type": "string"
+        },
+        "mobileNumber": {
+          "type": "string"
+        },
+        "kycVerified": {
+          "type": "number"
+        },
+        "assessment": {
+          "type": "string"
+        },
+        "assessmentMarks": {
+          "type": "string"
+        },
+        "profilePercentage": {
+          "type": "number"
+        },
+        "readMessage": {
+          "type": "number"
+        },
+        "currentAddress": {
+          "type": "string"
+        },
+        "permanentAddress": {
+          "type": "string"
+        },
+        "age": {
+          "type": "number"
+        },
+        "dob": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "qualification": {
+          "type": "string"
+        },
+        "graduationFrom": {
+          "type": "string"
+        },
+        "graduationYear": {
+          "type": "string"
+        },
+        "role": {
+          "type": "array"
+        }
+      }
+    },
+    "successObject": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "default": "Successfully created."
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "The created batchId,roleId. field name will be based on creating object ex: roleId"
+            }
+          }
+        },
+        "showMessage": {
+          "type": "boolean"
+        },
+        "errors": {
+          "type": "object"
+        },
+        "errorMessages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "userResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "mobileNumber": {
+          "type": "string"
+        },
+        "emailId": {
+          "type": "string"
+        },
+        "dob": {
+          "type": "string"
+        },
+        "idProof": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/idProof"
+          }
+        },
+        "age": {
+          "type": "string"
+        },
+        "currentAddress": {
+          "type": "string"
+        },
+        "permanentAddress": {
+          "type": "string"
+        },
+        "profileImage": {
+          "type": "string"
+        },
+        "kycVerified": {
+          "type": "string"
+        },
+        "profilePercentage": {
+          "type": "array"
+        },
+        "status": {
+          "type": "string"
+        },
+        "readMessage": {
+          "type": "string"
+        },
+        "role": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/role"
+          }
+        }
+      }
+    },
+    "role": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "idProof": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        }
+      }
+    },
+    "inviteRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "emailId": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        }
+      }
+    },
+    "loginRequest": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "civilEngineerRequest": {
+      "type": "object",
+      "properties": {
+        "civilEngineer": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "documentRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "height": {
+          "type": "number"
+        },
+        "weight": {
+          "type": "number"
+        },
+        "width": {
+          "type": "number"
+        },
+        "positionX": {
+          "type": "number"
+        },
+        "positionY": {
+          "type": "number"
+        },
+        "pageNumber": {
+          "type": "number"
+        },
+        "schema": {
+          "$ref": "#/definitions/auditInfo"
+        }
+      }
+    },
+    "auditInfo": {
+      "type": "object",
+      "properties": {
+        "createdBy": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "lastUpdated": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "creationTime": {
+          "type": "string"
+        },
+        "lastUpdatedTime": {
+          "type": "string"
+        }
+      }
+    },
+    "forgetPasswordRequest": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string"
+        }
+      }
+    },
+    "resetPasswordRequest": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "invitedUserDetails": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailId": {
+          "type": "string"
+        },
+        "mobileNumber": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "loginResponse": {
+      "type": "object",
+      "properties": {
+        "accessToken": {
+          "type": "string"
+        },
+        "refreshToken": {
+          "type": "string"
+        },
+        "user": {
+          "type": "object",
+          "properties": {
+            "schema": {
+              "$ref": "#/definitions/addUser"
+            }
+          }
+        }
+      }
+    },
+    "registrationRequest": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailId": {
+          "type": "string"
+        },
+        "mobileNumber": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "termsAndConditions": {
+          "type": "boolean"
+        }
+      }
+    },
+    "propertyDocumentResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "mimeType": {
+          "type": "string"
+        },
+        "propertyRequestId": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "array"
+        },
+        "attachmentType": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "propertyRequest": {
+      "type": "object",
+      "properties": {
+        "referenceId": {
+          "type": "string"
+        },
+        "propertyType": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            }
+          }
+        },
+        "region": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            }
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "emailId": {
+          "type": "string"
+        },
+        "contactNumber": {
+          "type": "boolean"
+        },
+        "address": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "pincode": {
+          "type": "number"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        }
+      }
+    },
+    "propertyResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "referenceId": {
+          "type": "string"
+        },
+        "propertyType": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "region": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "emailId": {
+          "type": "string"
+        },
+        "contactNumber": {
+          "type": "boolean"
+        },
+        "address": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "pincode": {
+          "type": "number"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "propertyContactResponse": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "referenceId": {
+              "type": "string"
+            },
+            "propertyType": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "region": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "emailId": {
+              "type": "string"
+            },
+            "contactNumber": {
+              "type": "string"
+            }
+          }
+        },
+        "documentWriter": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "contact_number": {
+              "type": "string"
+            }
+          }
+        },
+        "estimatedFinishDate": {
+          "type": "string"
+        }
+      }
+    },
+    "propertyRequestResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "referenceId": {
+          "type": "string"
+        },
+        "propertyType": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "region": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "emailId": {
+          "type": "string"
+        },
+        "contactNumber": {
+          "type": "boolean"
+        },
+        "address": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "pincode": {
+          "type": "number"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "documentWriter": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "contact_number": {
+              "type": "string"
+            }
+          }
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "civilEngineer": {
+          "type": "object",
+          "properties": {
+            "emailId": {
+              "type": "string"
+            },
+            "mobileNumber": {
+              "type": "string"
+            },
+            "firstName": {
+              "type": "string"
+            }
+          }
+        },
+        "civilEngineerResponse": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "paymentStatus": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "estimatedFinishDate": {
+          "type": "string"
+        },
+        "documents": {
+          "type": "object",
+          "properties": {
+            "Saledeed": {
+              "type": "array"
+            },
+            "Mortagage": {
+              "type": "array"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "_id": {
+      "$oid": "6039e2d0fdf71f296eb9caf2"
+    },
+    "region_name": "Hyderabad",
+    "region_code": "HYD",
+    "status": 1,
+    "__v": 0,
+    "region_type": "MRO"
+  },
+  {
+    "_id": {
+      "$oid": "6039e2d1fdf71f296eb9caf3"
+    },
+    "region_name": "Karim nagar",
+    "region_code": "KMR",
+    "status": 1,
+    "__v": 0,
+    "region_type": "MRO"
+  },
+  {
+    "_id": {
+      "$oid": "6039e2d1fdf71f296eb9caf4"
+    },
+    "region_name": "Nizamabad",
+    "region_code": "NZB",
+    "status": 1,
+    "__v": 0,
+    "region_type": "MRO"
+  },
+  {
+    "_id": {
+      "$oid": "6039e2d1fdf71f296eb9caf5"
+    },
+    "region_name": "Vizag",
+    "region_code": "VZG",
+    "status": 1,
+    "__v": 0,
+    "region_type": "SRO"
+  },
+  {
+    "_id": {
+      "$oid": "6039e2d2fdf71f296eb9caf6"
+    },
+    "region_name": "Srikakulam",
+    "region_code": "SKLM",
+    "status": 1,
+    "__v": 0,
+    "region_type": "SRO"
+  }
+]

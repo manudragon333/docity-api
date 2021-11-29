@@ -1,0 +1,34 @@
+[
+  {
+    "_id": {
+      "$oid": "60584c76fe8e263effcd9730"
+    },
+    "pt_name": "Agricultural Land",
+    "status": 1,
+    "region_type": "MRO"
+  },
+  {
+    "_id": {
+      "$oid": "60584d0cfe8e263effcd9731"
+    },
+    "pt_name": "Commercial Property",
+    "status": 1,
+    "region_type": "SRO"
+  },
+  {
+    "_id": {
+      "$oid": "60584d17fe8e263effcd9732"
+    },
+    "pt_name": "Residential Property",
+    "status": 1,
+    "region_type": "SRO"
+  },
+  {
+    "_id": {
+      "$oid": "60584d25fe8e263effcd9733"
+    },
+    "pt_name": "Plot",
+    "status": 1,
+    "region_type": "SRO"
+  }
+]

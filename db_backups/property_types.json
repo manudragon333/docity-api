@@ -1,0 +1,44 @@
+[{
+  "_id": {
+    "$oid": "6039e4aece51712baaf1d51e"
+  },
+  "pt_name": "Immovable",
+  "pt_code": "IMOV",
+  "status": 1,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6039e4afce51712baaf1d51f"
+  },
+  "pt_name": "Public",
+  "status": 1,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6039e4afce51712baaf1d520"
+  },
+  "pt_name": "Private",
+  "status": 1,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6039e4afce51712baaf1d521"
+  },
+  "pt_name": "Corporeal",
+  "status": 1,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6039e4b0ce51712baaf1d522"
+  },
+  "pt_name": "Movable",
+  "status": 1,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6039e4b0ce51712baaf1d523"
+  },
+  "pt_name": "Incorporeal",
+  "status": 1,
+  "__v": 0
+}]
