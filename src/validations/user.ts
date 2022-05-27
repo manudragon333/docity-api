@@ -7,7 +7,7 @@ import {
   baseQueryListValidation,
   mobileNumberValidation,
   validate,
-  validate2
+  validate2,
 } from "validations/common";
 import { ROLE_LIST, USER_DOC_TYPES } from "constants/master_data";
 
@@ -114,6 +114,16 @@ export function userSchema() {
         }),
         "array.min": "Minimum one role is required",
       }),
+    profileId: Joi.string().allow(null, ""),
+    region: Joi.array()
+      .min(0)
+      .items(Joi.string())
+      .messages({
+        "any.required": buildErrorMessage(ErrorMessages.IS_REQUIRED, {
+          $field: "Region",
+        }),
+        "array.min": "Minimum one region is required",
+      }),
   });
 }
 
@@ -145,6 +155,26 @@ export async function getUsers(
     schema = schema.append({
       roles: Joi.string(),
       status: Joi.string(),
+    });
+    await validate(schema, req, res, next);
+  } catch (error) {
+    Log.error(TAG, "getUsers()", error);
+    next(error);
+  }
+}
+
+export async function getCivilEngg(
+  req: any,
+  res: Response,
+  next: NextFunction
+): Promise<void> {
+  Log.info(TAG + ".getUsers()");
+  try {
+    Log.debug("STARTED validation of get users.");
+    let schema = baseQueryListValidation();
+    schema = schema.append({
+      status: Joi.string(),
+      region: Joi.string().allow(null, ""),
     });
     await validate(schema, req, res, next);
   } catch (error) {
